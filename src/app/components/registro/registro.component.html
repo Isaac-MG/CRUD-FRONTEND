@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col col-12 col-sm-6 mt-5">
+            <h2>Registro</h2>
+
+            <form [formGroup]="formRegistro" (ngSubmit)="registro()">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Nombre:</label>
+                  <input type="text" class="form-control" id="name" aria-describedby="name" formControlName="name">
+                </div>
+                <div class="mb-3">
+                  <label for="lastname" class="form-label">Apellido:</label>
+                  <input type="text" class="form-control" id="lastname" formControlName="lastname">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Perfile:</label>
+                    <select class="form-select" aria-label="Lista de perfiles" formControlName="profiles">
+                        <option *ngFor="let p of profiles" [ngValue]="p">{{p }} </option>
+                    </select>
+                  </div>
+                  <div id="help" class="form-text alert alert-danger" *ngIf="error">Ingrese todos los datos</div>
+                <button type="submit" class="btn btn-primary mt-3">Registar</button>
+            </form>
+        </div>
+    </div>
+</div>
